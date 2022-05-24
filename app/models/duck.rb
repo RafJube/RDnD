@@ -1,4 +1,5 @@
 class Duck < ApplicationRecord
+  has_one_attached :photo
   has_many :rentals
   has_many :favorites, dependent: :destroy
   has_many :users, through: :rentals

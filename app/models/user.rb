@@ -10,5 +10,5 @@ class User < ApplicationRecord
   has_many :ducks, through: :favorites
   validates :username, presence: true, uniqueness: true, length: { minimum: 3 }
   validates :email, presence: true, uniqueness: true
-  validates :address, presence: true
+  # validates :address, presence: true
 end
