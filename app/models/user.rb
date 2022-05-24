@@ -6,4 +6,8 @@ class User < ApplicationRecord
   has_many :rentals
   has_many :favorites
   has_many :ducks
+  validates :username, presence: true, length: { minimum: 3 }
+  validates :email, presence: true, uniqueness: true, format: { with: /^[a-z]\w*@\w+\.\w+$/i, message: "is not an email" }
+  validates :address, presence: true
+  validates :password, presence: true, length: { in: 6..20 }, confirmation: true, unless: { password.blank? }
 end
