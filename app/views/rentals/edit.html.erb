@@ -1,0 +1,9 @@
+<h2>Add a comment and rating for the following reservation:</h2>
+<p><%#= @duck.name %></p>
+<p><%= @rentals.date_start %></p>
+<p><%= @rentals.date_end %></p>
+<%= simple_form_for(@rental) do |f| %>
+  <%= f.input :comment %>
+  <%= f.input :rating %>
+  <%= f.submit "Send the comment", class: "btn btn-flat" %>
+<% end %>
