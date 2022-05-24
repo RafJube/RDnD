@@ -12,7 +12,7 @@ class RentalsController < ApplicationController
   def create
     @rental = Rental.new(rental_params)
     if @rental.save
-      redirect_to rental_path(@rental)
+      redirect_to rentals_path
     else
       render :new
     end
@@ -37,7 +37,7 @@ class RentalsController < ApplicationController
   private
 
   def rental_params
-    params.require(:rental).permit(:date_start, :date_end, :comments, :rating)
+    params.require(:rental).permit(:date_start, :date_end, :comments, :rating, :user_id, :duck_id)
   end
 
   def set_rental
