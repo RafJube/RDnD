@@ -1,5 +1,5 @@
 class RentalsController < ApplicationController
-  before_action :set_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_rental, only: [:show, :edit, :update, :destroy]
 
   def index
     @rentals = Rental.all
@@ -25,7 +25,7 @@ class RentalsController < ApplicationController
   end
 
   def update
-    @rental.update(rental_params)
+    @rental.update!(rental_params)
     redirect_to rentals_path
   end
 

@@ -1,9 +1,12 @@
-<h2>Add a comment and rating for the following reservation:</h2>
-<p><%#= @duck.name %></p>
-<p><%= @rentals.date_start %></p>
-<p><%= @rentals.date_end %></p>
-<%= simple_form_for(@rental) do |f| %>
-  <%= f.input :comment %>
-  <%= f.input :rating %>
-  <%= f.submit "Send the comment", class: "btn btn-flat" %>
-<% end %>
+<div class="container">
+  <h2>Add a comment and rating for the following reservation:</h2>
+  <p><%= @rental.duck.name %></p>
+  <p>Owner: <%= @rental.duck.user.username %></p>
+  <p>from: <%= @rental.date_start.strftime("%d/%m/%Y") %></p>
+  <p>to: <%= @rental.date_end.strftime("%d/%m/%Y") %></p>
+  <%= simple_form_for(@rental) do |f| %>
+    <%= f.input :comments %>
+    <%= f.input :rating %>
+    <%= f.submit "Send the comment", class: "btn btn-flat" %>
+  <% end %>
+</div>
