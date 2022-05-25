@@ -1,4 +1,4 @@
-Duck.destroy_all if Rails.env.development?
+qDuck.destroy_all if Rails.env.development?
 User.destroy_all if Rails.env.development?
 Skill.destroy_all if Rails.env.development?
 

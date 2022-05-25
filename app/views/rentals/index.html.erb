@@ -21,10 +21,10 @@
                 data: { confirm: "Are you sure?" },
                 class: "btn btn-ghost"  %>
         </div>
-        <%#= image_tag "#{rental.duck.poster_url}", height: "300px" %>
       </div>
     <% end %>
   </div>
 </div>
 <%= link_to 'Back to rentals', rentals_path, class: "btn btn-flat"  %>
+<%= link_to 'Create a rental', new_rental_path, class: "btn btn-flat"  %>
 <%= link_to "Back to ducks", ducks_path, class: "btn btn-flat" %>
