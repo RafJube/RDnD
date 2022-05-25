@@ -6,7 +6,7 @@
 }
 
 .card {
-  height: 300px;
+
   background-position: center;
   background-size: cover;
   display: flex;
@@ -18,24 +18,28 @@
   border: 1px solid lightgrey;
   border-radius: 3px;
   box-shadow: 2px 2px 4px grey;
-  &:hover {
-    background-color: rgb(240, 240, 240);
-  }
 
   .card-info {
-    height: 200px;
+    width: 100%;
+    height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-  }
-  .card-link {
-    height: 100px;
-    display: flex;
-    justify-content: space-around;
     align-items: center;
   }
 
+  .card-photo {
+    height: 200px;
+  }
+
+  .card-row {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    padding-top: 20px;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   a {
     text-decoration: none;

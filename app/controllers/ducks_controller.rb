@@ -24,6 +24,12 @@ class DucksController < ApplicationController
     end
   end
 
+  def destroy
+    @duck = Duck.find(params[:id])
+    @duck.destroy
+    redirect_to ducks_path
+  end
+
   private
 
   def duck_params
