@@ -1,16 +1,35 @@
-<div>
-  <h2><%= @duck.name %></h2>
-  <h3><% @duck.skills.each do |skill| %>
-        <%=  skill.name %>
-      <% end %>
-  </h3>
+<div class="container">
+  <div class="show-global">
+    <div class="show-description">
+      <div>
+        <h1>My name is <%= @duck.name %></h1>
+        <br>
+        <h3>Skills: <% @duck.skills.each do |skill| %>
+              <%=  skill.name %>
+            <% end %>
+        </h3>
+      </div>
+      <div>
+      <br>
+      <h3>Description:</h3>
+      <h3><%= @duck.description %></h3>
+      </div>
+      <br>
+      <div>
+        <p><%= @duck.price %> Euros</p>
+        <p><%= @duck.average_rating %> / 5.0</p>
+      </div>
+      <div class="show-link">
+        <%= link_to "Back to ducks", ducks_path %>
+        <%= link_to "Edit this duck", edit_duck_path(@duck) %>
+        <%= link_to 'Delete',
+                duck_path(@duck),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %>
+      </div>
+    </div>
+    <div class="show-photo">
+      <%= cl_image_tag @duck.photo.key, crop: :fill %>
+    </div>
+  </div>
 </div>
-<div>
- <p><%= @duck.description %></p>
-</div>
-<div>
-  <p><%= @duck.price %></p>
-  <p><%= @duck.average_rating %></p>
-</div>
-<%# <%= link_to "Edit a Duck", edit_duck_path %>
-<%= link_to "Back to ducks", ducks_path %>

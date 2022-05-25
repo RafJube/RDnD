@@ -1,15 +1,26 @@
-<div>
-  <h1>Ducks</h1>
-  <p><%= link_to "Create a new Duck", new_duck_path %></p>
-  <% @ducks.each do |duck| %>
-  <div>
-  <h3>"<%= link_to duck.name, duck_path(duck) %>"</h3>
-  <h4><% duck.skills.each do |skill| %>
-        <%=  skill.name %>
-      <% end %>
-  </h4>
-  <p><%= duck.price %></p>
-  <p><%= duck.average_rating %></p>
-  <% end %>
+<div class="container">
+  <h1>Welcome to my Ducks' list (<%= @ducks.length %>)</h1>
+  <%= link_to "Create a new Duck", new_duck_path, class: "btn btn-flat" %>
+  <%= link_to "Back to rentals", rentals_path, class: "btn btn-flat"%>
+  <div class="cards">
+    <% @ducks.each do |duck| %>
+      <div class="card">
+        <div class="card-info">
+          <h3><%= link_to duck.name, duck_path(duck) %></h3>
+          <p>
+            <% duck.skills.each do |skill| %>
+              <%= skill.name %>
+            <% end %>
+          </p>
+        </div>
+        <div class="card-photo">
+          <%= cl_image_tag duck.photo.key, height: 200, crop: :fill %>
+        </div>
+        <div class="card-row">
+          <p><%= duck.price %> Euros</p>
+          <p><%= duck.average_rating %> / 5.0</p>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
