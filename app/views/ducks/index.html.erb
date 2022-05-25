@@ -1,0 +1,15 @@
+<div>
+  <h1>Ducks</h1>
+  <p><%= link_to "Create a new Duck", new_duck_path %></p>
+  <% @ducks.each do |duck| %>
+  <div>
+  <h3>"<%= link_to duck.name, duck_path(duck) %>"</h3>
+  <h4><% duck.skills.each do |skill| %>
+        <%=  skill.name %>
+      <% end %>
+  </h4>
+  <p><%= duck.price %></p>
+  <p><%= duck.average_rating %></p>
+  <% end %>
+  </div>
+</div>
