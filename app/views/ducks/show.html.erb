@@ -1,13 +1,16 @@
 <div>
   <h2><%= @duck.name %></h2>
-  <h3><%= duck.skills %></h4>
+  <h3><% @duck.skills.each do |skill| %>
+        <%=  skill.name %>
+      <% end %>
+  </h3>
 </div>
 <div>
- <p><%= @duck.descrption %></p>
+ <p><%= @duck.description %></p>
 </div>
 <div>
-  <p><%= duck.price %></p>
-  <p><%= duck.average_rating %></p>
+  <p><%= @duck.price %></p>
+  <p><%= @duck.average_rating %></p>
 </div>
 <%# <%= link_to "Edit a Duck", edit_duck_path %>
 <%= link_to "Back to ducks", ducks_path %>

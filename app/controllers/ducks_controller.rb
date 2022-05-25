@@ -9,11 +9,11 @@ class DucksController < ApplicationController
 
   def new
     @duck = Duck.new # needed to instantiate the form_for
-    @skills = ["HTML", "CSS", "Rails"]
   end
 
   def create
     @duck = Duck.new(duck_params)
+    # @duck.skills =
     if @duck.save
       redirect_to duck_path(@duck)
     else
@@ -24,6 +24,6 @@ class DucksController < ApplicationController
   private
 
   def duck_params
-    params.require(:duck).permit(:name, :skills, :description, :price)
+    params.require(:duck).permit(:name, :users, :description, :price)
   end
 end

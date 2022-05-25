@@ -1,7 +1,7 @@
 <%= simple_form_for(@duck) do |f| %>
   <%= f.input :name %>
-  <%= f.association :user %>
-  <%= f.input :skills, as: :check_boxes, collection: @skills %>
+  <%= f.input :users, collection: User.all %>
+  <%= f.input :skills, as: :check_boxes, collection: Skill.all %>
   <%= f.input :description %>
   <%= f.input :price %>
   <%= f.submit %>
