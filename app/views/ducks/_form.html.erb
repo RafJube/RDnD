@@ -1,6 +1,7 @@
 <%= simple_form_for(@duck) do |f| %>
   <%= f.input :name %>
   <%= f.input :skills, as: :check_boxes, collection: Skill.all %>
+  <%= f.input :photo, as: :file %>
   <%= f.input :description %>
   <%= f.input :price %>
   <%= f.submit %>
