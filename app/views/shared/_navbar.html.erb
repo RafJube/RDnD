@@ -3,27 +3,34 @@
     <%= link_to "#", class: "navbar-brand" do %>
       <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
     <% end %>
+    <div class="card-product-infos">
+      <h1>RDnD</h1>
+      <h2>Rubber Ducks & Ducks</h2>
+    </div>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <%= simple_form_for :search, url: ducks_path, method: :get do |f| %>
+      <div class="search-form-control form-group">
+          <%= text_field_tag :q, nil, autocomplete: :off, class: "form-control search-input", placeholder: "javascript, ruby, python ..." %>
+        <button name="button" type="submit" class="btn btn-flat">
+          <i class="fas fa-search"></i> Search
+        </button>
+      </div>
+    <% end %>
+    
+    <div>
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            </div>
+              <%= image_tag "https://img2.freepng.fr/20180427/hlw/kisspng-software-developer-computer-servers-programmer-web-5ae3e3d5ad3b83.0228521815248844377096.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "Action", "#", class: "dropdown-item" %>
+                <%= link_to "Another action", "#", class: "dropdown-item" %>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              </div>
           </li>
         <% else %>
           <li class="nav-item">
@@ -31,6 +38,6 @@
           </li>
         <% end %>
       </ul>
-    </div>
+    </div> 
   </div>
 </div>
