@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container">
   <div class="show-global">
     <div class="show-description">
@@ -32,4 +33,12 @@
       <%= cl_image_tag @duck.photo.key, crop: :fill %>
     </div>
   </div>
+=======
+<div>
+  <h2><%= @duck.name %>, <%= @duck.user.username %></h2>
+  <h3><% @duck.skills.each do |skill| %>
+        <%=  skill.name %>
+      <% end %>
+  </h3>
+>>>>>>> 6c260e98bc5420c1b84ae3015c6b0e013202bd88
 </div>
