@@ -1,5 +1,5 @@
 <div>
-  <h2><%= @duck.name %></h2>
+  <h2><%= @duck.name %>, <%= @duck.user.username %></h2>
   <h3><% @duck.skills.each do |skill| %>
         <%=  skill.name %>
       <% end %>

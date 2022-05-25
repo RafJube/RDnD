@@ -13,8 +13,7 @@ class DucksController < ApplicationController
 
   def create
     @duck = Duck.new(duck_params)
-    @user = User.find_by(id: params[:duck][:users])
-    @duck.user = @user
+    @duck.user = current_user
     @skills = params[:duck][:skills]
     @skills.shift
     @duck.skills = @skills.map { |skill| Skill.find_by(id: skill) }
