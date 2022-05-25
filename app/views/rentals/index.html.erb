@@ -1,6 +1,30 @@
-<% @rentals.each do |rental| %>
-  <h2><%= rental.date_start %></h2>
-  <h2><%= rental.date_end %></h2>
-  <h2><%= rental.comments %></h2>
-  <h2><%= rental.rating %></h2>
-<% end %>
+<div class="container">
+  <div class="cards">
+    <% @rentals.each do |rental| %>
+      <div class="card">
+        <div class="card-info">
+          <h2><%= rental.duck.name %></h2>
+          <p>Owner: <%= rental.duck.user.username %></p>
+          <p><%= rental.id %></p>
+          <p>from: <%= rental.date_start.strftime("%d/%m/%Y") %></p>
+          <p>to: <%= rental.date_end.strftime("%d/%m/%Y") %></p>
+        </div>
+        <div class="card-link">
+          <p><%= rental.comments %></p>
+          <p><%= rental.rating %></p>
+        </div>
+        <div class="card-link">
+          <%= link_to 'More details', rental_path(rental.id)%>
+          <%= link_to 'Edit', edit_rental_path(rental.id)%>
+          <%= link_to 'Delete',
+                rental_path(rental.id),
+                method: :delete,
+                data: { confirm: "Are you sure?" },
+                class: "btn btn-ghost"  %>
+        </div>
+        <%#= image_tag "#{rental.duck.poster_url}", height: "300px" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%= link_to 'Add a rental', new_rental_path, class: "btn btn-flat"  %>

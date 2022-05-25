@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+skills = ["CSS", "HTML", "Javascript", "Ruby", "Python"]
+skills.each do |skill|
+  s = Skill.new
+  s.name = skill
+  s.save
+end
