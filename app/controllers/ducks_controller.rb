@@ -13,7 +13,11 @@ class DucksController < ApplicationController
 
   def create
     @duck = Duck.new(duck_params)
-    # @duck.skills =
+    @user = User.find_by(id: params[:duck][:users])
+    @duck.user = @user
+    @skills = params[:duck][:skills]
+    @skills.shift
+    @duck.skills = @skills.map { |skill| Skill.find_by(id: skill) }
     if @duck.save
       redirect_to duck_path(@duck)
     else
@@ -24,6 +28,6 @@ class DucksController < ApplicationController
   private
 
   def duck_params
-    params.require(:duck).permit(:name, :users, :description, :price)
+    params.require(:duck).permit(:name, :description, :price)
   end
 end
