@@ -15,6 +15,13 @@
   min-width: 50px;
 }
 
+.mapboxgl-ctrl-geocoder {
+  max-width: none;
+  width: 100%;
+  border: 1px solid lightgrey;
+  box-shadow: none;
+}
+
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 510px) {
