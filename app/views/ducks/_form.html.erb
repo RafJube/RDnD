@@ -1,8 +1,26 @@
-<%= simple_form_for(@duck) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :skills, as: :check_boxes, include_hidden: false, collection: Skill.all %>
-  <%= f.input :photo, as: :file %>
-  <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+<h2> Add a new duck</h2>
+<hr>
+  <%= simple_form_for(@duck) do |f| %>
+    <div class="row justify-content-center">
+      <div class="col-auto">
+          <p>Your name</p><%= f.input :name , label: false %>
+      </div>
+      <div class="col-auto">
+          <p></p><%= f.input :skills, as: :check_boxes, include_hidden: false, collection: Skill.all, label: false %>
+      </div>
+      <div class="col-auto">
+          <p>Photo</p><%= f.input :photo, as: :file, label: false %>
+      </div>
+      <div class="col-auto">
+          <p>Description</p><%= f.input :description, label: false %>
+      </div>
+      <div class="col-auto">
+          <p>Price €</p><%= f.input :price, label: false %>
+      </div> 
+      <div>
+          <%= f.submit "Add a new duck", class: "btn btn-flat" %>
+      </div>
+    </div>
+  <% end %>
+</div>
