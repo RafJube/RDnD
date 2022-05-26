@@ -10,12 +10,17 @@ class RentalsController < ApplicationController
   end
 
   def create
+  
     @rental = Rental.new(rental_params)
+    @duck = Duck.find(params[:duck_id])
+    @rental.duck = @rental
+
     if @rental.save
       redirect_to rentals_path
     else
       render :new
     end
+    redirect_to duck_path(@duck)
   end
 
   def show

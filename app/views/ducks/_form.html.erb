@@ -6,3 +6,9 @@
   <%= f.input :price %>
   <%= f.submit %>
 <% end %>
+
+<%= simple_form_for [ @rental, @duck ] do |f| %>
+  <%= f.input :date_start %>
+  <%= f.input :date_end %>
+  <%= f.submit "Submit review", class: "btn btn-primary" %>
+<% end %>

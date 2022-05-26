@@ -1,27 +1,16 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+      <%= image_tag "https://cdn.dribbble.com/users/1672258/screenshots/14486093/media/4e4f6c3f39c072b6f0b5ed58a692fc59.png?compress=1&resize=1200x900&vertical=top", class: "avatar-large" %>
     <% end %>
-    <div class="card-product-infos">
-      <h1>RDnD</h1>
-      <h2>Rubber Ducks & Ducks</h2>
-    </div>
-  </div>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <%= simple_form_for :search, url: ducks_path, method: :get do |f| %>
-      <div class="search-form-control form-group">
-          <%= text_field_tag :q, nil, autocomplete: :off, class: "form-control search-input", placeholder: "javascript, ruby, python ..." %>
-        <button name="button" type="submit" class="btn btn-flat">
-          <i class="fas fa-search"></i> Search
-        </button>
-      </div>
-    <% end %>
-    
-    <div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <div>
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
@@ -39,5 +28,10 @@
         <% end %>
       </ul>
     </div> 
+      </ul>
+    </div>
+    
   </div>
 </div>
+
+

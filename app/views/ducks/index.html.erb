@@ -1,3 +1,22 @@
+
+<div class="container">
+  <%= simple_form_for :rental, url: root_path, method: :get do |f| %>
+    <div class="row g-3 align-items-center">
+      <div class="col-auto">
+      <%= f.input :date_start, as: :date, html5: true %>
+      </div>
+      <div class="col-auto">
+      <%= f.input :date_end, as: :date, html5: true %>
+      </div>
+      <div class="col-auto">
+      <%= link_to "Check availability", "#", class: "btn btn-gradient" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
 <div class="container">
   <h1>Welcome to my Ducks' list (<%= @ducks.length %>)</h1>
   <%= link_to "Create a new Duck", new_duck_path, class: "btn btn-flat" %>
