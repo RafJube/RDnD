@@ -25,6 +25,15 @@
   <% if policy(Duck).create? %>
     <%= link_to "Create a new Duck", new_duck_path, class: "btn btn-flat" %>
   <% end %>
+  
+  <%= form_tag ducks_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      classe: "form-control",
+      placeholder: "Type a language"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
     <div class="container-row container-with-map">
       <div class="cards">
         <% @ducks.each do |duck| %>

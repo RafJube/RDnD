@@ -2,7 +2,12 @@ class DucksController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @ducks = policy_scope(Duck)
+    if params[:query].present?
+      @ducks = policy_scope(Duck).select { |duck| duck.skills.include?(Skill.find_by(name: params[:query])) }
+      
+    else
+      @ducks = policy_scope(Duck)
+    end
     # @ducks = Duck.all
 
     @markers = @ducks.map do |duck|
