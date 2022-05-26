@@ -1,6 +1,9 @@
 class DucksController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
-    @ducks = Duck.all
+    @ducks = policy_scope(Duck)
+    # @ducks = Duck.all
 
     @markers = @ducks.map do |duck|
       if duck.user.geocoded?
@@ -16,18 +19,21 @@ class DucksController < ApplicationController
 
   def show
     @duck = Duck.find(params[:id])
+    authorize @duck
   end
 
   def new
     @duck = Duck.new # needed to instantiate the form_for
+    authorize @duck
   end
 
   def create
     @duck = Duck.new(duck_params)
+    authorize @duck
     @duck.user = current_user
-    @skills = params[:duck][:skills]
-    @skills.shift
-    @duck.skills = @skills.map { |skill| Skill.find_by(id: skill) }
+    @skills_ids = params[:duck][:skills]
+    # @duck.skills = @skills.map { |skill| Skill.find_by(id: skill) }
+    @skills_ids.each { |id| DuckSkill.create(skill: Skill.find(id), duck: @duck) }
     if @duck.save
       redirect_to duck_path(@duck)
     else
@@ -37,8 +43,28 @@ class DucksController < ApplicationController
 
   def destroy
     @duck = Duck.find(params[:id])
+    authorize @duck
     @duck.destroy
     redirect_to ducks_path
+  end
+
+  def edit
+    @duck = Duck.find(params[:id])
+    authorize @duck
+  end
+
+  def update
+    @duck = Duck.find(params[:id])
+    @duck.update(duck_params)
+    authorize @duck
+    @skills_ids = params[:duck][:skills]
+    @skills_ids.map! { |skill| Skill.find(skill) }
+    @duck.skills = @skills_ids
+    if @duck.save
+      redirect_to duck_path(@duck)
+    else
+      render :edit
+    end
   end
 
   private

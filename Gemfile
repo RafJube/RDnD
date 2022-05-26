@@ -37,6 +37,9 @@ gem 'cloudinary', '~> 1.16.0'
 # User authentication
 gem 'devise'
 
+# User authorizations
+gem 'pundit'
+
 # Geocoding
 gem 'geocoder'
 
