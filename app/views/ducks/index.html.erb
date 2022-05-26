@@ -1,4 +1,24 @@
-
+<div class="container search rounded-pill align-middle">
+  <%= simple_form_for :rental, url: root_path, method: :get do |f| %>
+    <div class="row g-3 align-items-center">
+      <div class="col-auto">
+      <h2>From</h2>
+      </div>
+      <div class="col-auto">
+      <%= f.input :date_start, as: :date, html5: true, label: false %>
+      </div>
+      <div class="col-auto">
+      <h2>To</h2>
+      </div>
+      <div class="col-auto">
+      <%= f.input :date_end, as: :date, html5: true, label: false %>
+      </div>
+      <div class="col-auto">
+      <%= link_to "Check availability", "#", class: "btn btn-gradient" %>
+      </div>
+    </div>
+  <% end %>
+</div>
 <div class="container">
     <h1>Welcome to my Ducks' list (<%= @ducks.length %>)</h1>
     <%= link_to "Create a new Duck", new_duck_path, class: "btn btn-flat" %>

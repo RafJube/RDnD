@@ -3,25 +3,11 @@
     <%= link_to "#", class: "navbar-brand" do %>
       <%= image_tag "logo.png" %>
     <% end %>
-    <div class="card-product-infos">
-      <h1>RDnD</h1>
-      <h2>Rubber Ducks & Ducks</h2>
-    </div>
-  </div>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-
-
-    <%= simple_form_for :search, url: ducks_path, method: :get do |f| %>
-      <div class="search-form-control form-group">
-          <%= text_field_tag :q, nil, autocomplete: :off, class: "form-control search-input", placeholder: "javascript, ruby, python ..." %>
-        <button name="button" type="submit" class="btn btn-flat">
-          <i class="fas fa-search"></i> Search
-        </button>
-      </div>
-    <% end %>
-
-    <div>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
@@ -41,3 +27,5 @@
     </div>
   </div>
 </div>
+
+
