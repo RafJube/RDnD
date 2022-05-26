@@ -36,6 +36,25 @@ class DucksController < ApplicationController
     redirect_to ducks_path
   end
 
+  def edit
+    @duck = Duck.find(params[:id])
+    authorize @duck
+  end
+
+  def update
+    @duck = Duck.find(params[:id])
+    @duck.update(duck_params)
+    authorize @duck
+    @skills_ids = params[:duck][:skills]
+    @skills_ids.map! { |skill| Skill.find(skill) }
+    @duck.skills = @skills_ids
+    if @duck.save
+      redirect_to duck_path(@duck)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def duck_params

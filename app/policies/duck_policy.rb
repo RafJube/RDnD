@@ -20,4 +20,9 @@ class DuckPolicy < ApplicationPolicy
   def destroy?
     user.present? && record.user == user
   end
+
+  # Only current user can update their Ducks
+  def update?
+    user.present? && record.user == user
+  end
 end

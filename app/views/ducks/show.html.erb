@@ -20,8 +20,10 @@
         <p><%= @duck.average_rating %> / 5.0</p>
       </div>
       <div class="show-link">
-        <%= link_to "Back to ducks", ducks_path %>
-        <%= link_to "Edit this duck", edit_duck_path(@duck) %>
+        <%= link_to "Back", ducks_path %>
+        <% if policy(@duck).update? %>
+          <%= link_to "Edit", edit_duck_path(@duck) %>
+         <% end %>
         <% if policy(@duck).destroy? %>
           <%= link_to 'Delete',
                   duck_path(@duck),
