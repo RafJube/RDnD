@@ -20,9 +20,12 @@
   <% end %>
 </div>
 <div class="container">
-    <h1>Welcome to my Ducks' list (<%= @ducks.length %>)</h1>
+  <h1>Find the Duck you need!</h1>
+  <p><%= @ducks.length %> ducks</p>
+  <% if policy(Duck).create? %>
     <%= link_to "Create a new Duck", new_duck_path, class: "btn btn-flat" %>
-    <%= link_to "Back to rentals", rentals_path, class: "btn btn-flat"%>
+  <% end %>
+  <%#= link_to "Back to rentals", rentals_path, class: "btn btn-flat"%>
     <div class="container-row container-with-map">
       <div class="cards">
         <% @ducks.each do |duck| %>
