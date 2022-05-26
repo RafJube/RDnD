@@ -3,23 +3,30 @@ class DucksController < ApplicationController
 
   def index
     if params[:query].present?
-      @ducks = policy_scope(Duck).select { |duck| duck.skills.include?(Skill.find_by(name: params[:query])) }
+      sql_query = " \
+        ducks.name ILIKE :query \
+        OR ducks.price ILIKE :query \
+        OR skills.name ILIKE :query \
+      "
+      @ducks = policy_scope(Duck).global_search(params[:query])
+
+      # @ducks = policy_scope(Duck).select { |duck| duck.skills.include?(Skill.find_by(name: params[:query])) }
       
     else
       @ducks = policy_scope(Duck)
     end
     # @ducks = Duck.all
 
-    @markers = @ducks.map do |duck|
-      if duck.user.geocoded?
-        {
-          lat: duck.user.latitude,
-          lng: duck.user.longitude,
-          info_window: render_to_string(partial: "info_window", locals: { duck: duck }),
-          image_url: helpers.asset_url("yellow-duck.png")
-        }
-      end
-    end
+    # @markers = @ducks.map do |duck|
+    #   if duck.user.geocoded?
+    #     {
+    #       lat: duck.user.latitude,
+    #       lng: duck.user.longitude,
+    #       info_window: render_to_string(partial: "info_window", locals: { duck: duck }),
+    #       image_url: helpers.asset_url("yellow-duck.png")
+    #     }
+    #   end
+    # end
   end
 
   def show
