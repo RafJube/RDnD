@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="cards">
     <% @rentals.each do |rental| %>
@@ -13,10 +14,10 @@
           <p><%= rental.rating %></p>
         </div>
         <div class="card-row">
-          <%= link_to 'More details', rental_path(rental.id)%>
-          <%= link_to 'Edit', edit_rental_path(rental.id)%>
+          <%#= link_to 'More details', duck_rental_path%>
+          <%= link_to 'Add a comment', edit_duck_rental_path(rental.duck, rental)%>
           <%= link_to 'Delete',
-                rental_path(rental.id),
+                duck_rental_path(rental.duck, rental),
                 method: :delete,
                 data: { confirm: "Are you sure?" },
                 class: "btn btn-ghost"  %>
@@ -25,6 +26,4 @@
     <% end %>
   </div>
 </div>
-<%= link_to 'Back to rentals', rentals_path, class: "btn btn-flat"  %>
-<%= link_to 'Create a rental', new_rental_path, class: "btn btn-flat"  %>
 <%= link_to "Back to ducks", ducks_path, class: "btn btn-flat" %>

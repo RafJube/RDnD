@@ -1,0 +1,31 @@
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+}
+
+.container-map {
+  margin-top: 15px;
+  position: fixed;
+  right: 20px;
+  width: 40%;
+  min-width: 50px;
+}
+
+.mapboxgl-ctrl-geocoder {
+  max-width: none;
+  width: 100%;
+  border: 1px solid lightgrey;
+  box-shadow: none;
+}
+
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 510px) {
+  .container-with-map {
+    display: block;
+  }
+}

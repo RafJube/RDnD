@@ -114,6 +114,7 @@ GEM
     ffi (1.15.5)
     font-awesome-sass (6.1.1)
       sassc (~> 2.0)
+    geocoder (1.8.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     http-accept (1.7.0)
@@ -160,6 +161,8 @@ GEM
     public_suffix (4.0.7)
     puma (5.6.4)
       nio4r (~> 2.0)
+    pundit (2.2.0)
+      activesupport (>= 3.0.0)
     racc (1.6.0)
     rack (2.2.3)
     rack-proxy (0.7.2)
@@ -277,12 +280,14 @@ DEPENDENCIES
   dotenv-rails
   faker
   font-awesome-sass (~> 6.1.1)
+  geocoder
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)
   pry-byebug
   pry-rails
   puma (~> 5.0)
+  pundit
   rails (~> 6.1.6)
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
@@ -298,4 +303,4 @@ RUBY VERSION
    ruby 3.0.3p157
 
 BUNDLED WITH
-   2.3.10
+   2.3.7

@@ -5,7 +5,7 @@
         <h1>My name is <%= @duck.name %></h1>
         <br>
         <h3>Skills: <% @duck.skills.each do |skill| %>
-              <%=  skill.name %>
+              <%= skill.name %>
             <% end %>
         </h3>
       </div>
@@ -20,12 +20,17 @@
         <p><%= @duck.average_rating %> / 5.0</p>
       </div>
       <div class="show-link">
-        <%= link_to "Back to ducks", ducks_path %>
-        <%= link_to "Edit this duck", edit_duck_path(@duck) %>
-        <%= link_to 'Delete',
-                duck_path(@duck),
-                method: :delete,
-                data: { confirm: "Are you sure?" } %>
+      <%= link_to "Create a rentals", new_duck_rental_path(@duck.id), class: "btn btn-flat"%>
+        <%= link_to "Back", ducks_path, class: "btn btn-flat" %>
+        <% if policy(@duck).update? %>
+          <%= link_to "Edit", edit_duck_path(@duck) %>
+         <% end %>
+        <% if policy(@duck).destroy? %>
+          <%= link_to 'Delete',
+                  duck_path(@duck),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %>
+        <% end %>
       </div>
     </div>
     <div class="show-photo">
