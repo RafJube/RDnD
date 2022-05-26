@@ -1,16 +1,13 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://cdn.dribbble.com/users/1672258/screenshots/14486093/media/4e4f6c3f39c072b6f0b5ed58a692fc59.png?compress=1&resize=1200x900&vertical=top", class: "avatar-large" %>
+      <%= image_tag "logo.png" %>
     <% end %>
-
+    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <div>
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
@@ -27,10 +24,7 @@
           </li>
         <% end %>
       </ul>
-    </div> 
-      </ul>
     </div>
-    
   </div>
 </div>
 
