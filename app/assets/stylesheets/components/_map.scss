@@ -1,0 +1,24 @@
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+}
+
+.container-map {
+  margin-top: 15px;
+  position: fixed;
+  right: 20px;
+  width: 40%;
+  min-width: 50px;
+}
+
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 510px) {
+  .container-with-map {
+    display: block;
+  }
+}
