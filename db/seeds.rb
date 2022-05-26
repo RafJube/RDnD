@@ -26,21 +26,21 @@ bob = User.create!(
   username: "king1",
   email: "king1@lewagon.com",
   password: "secret",
-  address: "12 rue des rues"
+  address: "Paris"
 )
   
 bobette = User.create!(
   username: "queen1",
   email: "queen1@lewagon.com",
   password: "secret",
-  address: "24 place des maisons"
+  address: "Bordeaux"
 )
     
 yoyo = User.create!(
   username: "tatayoyo",
   email: "tata@yoyo.fr",
   password: "secret",
-  address: "par là, pas loin"
+  address: "Lyon"
 )
 
 def random_skill(skills)
