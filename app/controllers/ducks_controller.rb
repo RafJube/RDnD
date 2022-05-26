@@ -3,6 +3,18 @@ class DucksController < ApplicationController
 
   def index
     @ducks = policy_scope(Duck)
+    # @ducks = Duck.all
+
+    @markers = @ducks.map do |duck|
+      if duck.user.geocoded?
+        {
+          lat: duck.user.latitude,
+          lng: duck.user.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { duck: duck }),
+          image_url: helpers.asset_url("yellow-duck.png")
+        }
+      end
+    end
   end
 
   def show
