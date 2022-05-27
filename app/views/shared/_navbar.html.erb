@@ -9,7 +9,9 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <p><%= current_user.username %></p>
+      <% if !current_user.nil?  %>
+        <p><%= current_user.username %></p>
+      <% end %>
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
