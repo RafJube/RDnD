@@ -22,32 +22,20 @@ puts "Done"
 puts "-------------------------"
 puts "Creating Users..."
 
-bob = User.create!(
-  username: "king1",
-  email: "king1@lewagon.com",
-  password: "secret",
-  address: "Paris"
-)
-  
-bobette = User.create!(
-  username: "queen1",
-  email: "queen1@lewagon.com",
-  password: "secret",
-  address: "Bordeaux"
-)
-    
-yoyo = User.create!(
-  username: "tatayoyo",
-  email: "tata@yoyo.fr",
-  password: "secret",
-  address: "Lyon"
-)
-
 def random_skill(skills)
   array = skills.shuffle
   array[0..rand(0..(array.size - 1))]
 end
-      
+
+def create_user(name, address)
+  User.create!(
+    username: name,
+    email: "#{name}@lewagon.com",
+    password: "secret",
+    address: address
+  )
+end
+
 def create_a_duck(hash={}, skills)
   file = URI.open(hash[:url])
   cloud = Cloudinary::Uploader.upload(hash[:url])
@@ -63,6 +51,23 @@ def create_a_duck(hash={}, skills)
   duck.save!
 end
 
+un = create_user("king1", "Paris")
+deux = create_user("queen1", "Bordeaux")
+trois = create_user("tatayoyo", "Bayonne")
+quatre = create_user("bob4", "Lyon")
+cinq = create_user("bob5", "Strasbourg")
+six = create_user("bob6", "Lille")
+sept = create_user("bob7", "Brest")
+huit = create_user("bob8", "Marseille")
+neuf = create_user("bob9", "Grenoble")
+dix = create_user("bob10", "Nanterre")
+onze = create_user("bob11", "Le Porge")
+douze = create_user("bob12", "Biscarosse")
+treize = create_user("bob13", "Tours")
+quatorze = create_user("bob14", "Limoges")
+quinze = create_user("bob15", "Clermont-Ferrand")
+
+
 puts "Done"
 puts "-------------------------"
 puts "Creating Ducks..."
@@ -71,123 +76,133 @@ array = [
   {
     url: "https://res.cloudinary.com/guilhem/image/upload/v1653396832/RDnD/Ducktrix-rubber-duck-front-Amsterdam-Duck-Store-1_li4gsh.jpg",
     name: "Ducktrix",
-    user: bob
+    user: un
   },
   {
     url: "https://res.cloudinary.com/guilhem/image/upload/v1653396867/RDnD/Bohemian-Quacksody-rubber-duck-front-Amsterdam-Duck-Store-e1570195237919-400x400_i9qm1u.jpg",
     name: "Bohemian",
-    user: bobette
+    user: deux
   },
   {
     url: "https://res.cloudinary.com/guilhem/image/upload/v1653397075/RDnD/Duck-You-rubber-duck-front-Amsterdam-Duck-Store-400x400_rnqxsc.jpg",
     name: "Duck_You",
-    user: yoyo
+    user: trois
   },
   {
     url: "https://res.cloudinary.com/guilhem/image/upload/v1653397097/RDnD/Black-Sheep-Rubber-Duck-front-Amsterdam-Duck-Store-400x400_ecdhq2.jpg",
     name: "Black_Sheep",
-    user: bobette
+    user: quatre
   },
   {
     url: "https://res.cloudinary.com/guilhem/image/upload/v1653397119/RDnD/cow-black-and-white-rubber-duck-front-e1569759638189-400x400_yrumpf.jpg",
     name: "Cow",
-    user: bob
+    user: cinq
   },
   {
     url: "https://res.cloudinary.com/guilhem/image/upload/v1653397134/RDnD/Snail-Rubber-Duck-front-Amsterdam-Duck-Store-510x510_uvu4rj.jpg",
     name: "Snail",
-    user: yoyo
+    user: six
   },
   {
     url: "https://res.cloudinary.com/guilhem/image/upload/v1653397163/RDnD/Barkeeper-rubber-duck-front-Amsterdam-Duck-Store-400x400_mftn7u.jpg",
     name: "Barkeeper",
-    user: bob
+    user: sept
   },
   {
     url: "https://res.cloudinary.com/guilhem/image/upload/v1653397183/RDnD/Fitness-Holdy-Rubber-Duck-front-Amsterdam-Duck-Store-400x400_tmv9o7.jpg",
     name: "Fitness",
-    user: bobette
+    user: huit
   },
   {
     url: "https://res.cloudinary.com/guilhem/image/upload/v1653397205/RDnD/racer-rubber-duck-front-e1569491413329-400x400_cpmx5g.jpg",
     name: "Racer",
-    user: yoyo
+    user: neuf
   },
   {
     url: "https://res.cloudinary.com/guilhem/image/upload/v1653397364/RDnD/black-star-rubber-duck-front-510x510_h3eqlk.jpg",
     name: "Vador",
-    user: bob
+    user: dix
   },
   {
     url: "https://res.cloudinary.com/guilhem/image/upload/v1653397394/RDnD/unicorn-costume-rubber-duck-front-II-400x400_ssendw.jpg",
     name: "Unicorn",
-    user: bobette
+    user: onze
   },
   {
     url: "https://res.cloudinary.com/guilhem/image/upload/v1653397407/RDnD/Finger-Rubber-Duck-Amsterdam-Duck-Store_jd5y4m.jpg",
     name: "Respect_First",
-    user: yoyo
+    user: douze
   },
   {
     url: "https://res.cloudinary.com/guilhem/image/upload/v1653397427/RDnD/Eskimo-with-baby-rubber-duck-front-Amsterdam-Duck-Store_qcupo4.jpg",
     name: "Eskimo",
-    user: bob
+    user: un
   },
   {
     url: "https://res.cloudinary.com/guilhem/image/upload/v1653397444/RDnD/Ziggy-Starduck-rubber-duck-front-Amsterdam-Duck-Store-1-400x400_idvd3o.jpg",
     name: "Ziggy",
-    user: bobette
+    user: deux
   },
   {
     url: "https://res.cloudinary.com/guilhem/image/upload/v1653397464/RDnD/liberty-rubber-duck-front-e1569407748113-400x400_qphvpg.jpg",
     name: "Liberty",
-    user: yoyo
+    user: trois
   },
   {
     url: "https://res.cloudinary.com/guilhem/image/upload/v1653397524/RDnD/dark-rubber-duck-front-Amsterdam-Duck-Store-400x400_uvjxzx.jpg",
     name: "Dark_Duck_Returns",
-    user: bob
+    user: trois
   },
   {
     url: "https://res.cloudinary.com/guilhem/image/upload/v1653397541/RDnD/Avatara-rubber-duck-front-Amsterdam-Duck-Store-400x400_lef8co.jpg",
     name: "Avatar",
-    user: bobette
+    user: trois
   },
   {
     url: "https://res.cloudinary.com/guilhem/image/upload/v1653397561/RDnD/Rock-idol-rubber-duck-Amsterdam-Duck-Store--510x510_arjdda.png",
     name: "Duck_à_chien",
-    user: yoyo
+    user: un
   },
   {
     url: "https://res.cloudinary.com/guilhem/image/upload/v1653397659/RDnD/Sparta-rubber-duck-front-Amsterdam-Duck-Store-400x400_ohdmvw.jpg",
     name: "Kratos",
-    user: bob
+    user: deux
   },
   {
     url: "https://res.cloudinary.com/guilhem/image/upload/v1653397685/RDnD/Royal-Guard-rubber-duck-front-Amsterdam-Duck-Store-400x400_dl0vri.jpg",
     name: "Dont_move",
-    user: bobette
+    user: dix
   },
+  {
+    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShp85UBEy6ros9OG9hdweM9qQGezparGMSZA&usqp=CAU",
+    name: "Mandarin",
+    user: quatorze
+  },  
+  {
+    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9OBlQ5Gy6NQggpI4bN984l-2qa8oiaLzT4g&usqp=CAU",
+    name: "Joe",
+    user: dix
+  },  
+  {
+    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_uNcvT9wLDf7eM-vE1mk6E1OYSiV6wDqDWg&usqp=CAU",
+    name: "Alfred",
+    user: treize
+  },  
+  {
+    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdAyk7Spm4N1Zn7AXFmK-4f49t44QGNzf_7A&usqp=CAU",
+    name: "Awrell",
+    user: quatorze
+  },  
+  {
+    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6D1CI0U3FiSNCXfU_3yQ0kEFUdBJWTim7Uw&usqp=CAU",
+    name: "William",
+    user: quinze
+  }
 ]
 
 array.each do |hash|
   create_a_duck(hash, skills)
 end
-
-# file = URI.open("https://res.cloudinary.com/guilhem/image/upload/v1653397685/RDnD/Royal-Guard-rubber-duck-front-Amsterdam-Duck-Store-400x400_dl0vri.jpg")
-# p file
-# # cloud = Cloudinary::Uploader.upload(hash[:url])
-# duck = Duck.new(
-#   user_id: bob.id,
-#   name: "blop",
-#   description: Faker::TvShows::HowIMetYourMother.catch_phrase,
-#   price: rand(1.0..1000.0),
-#   average_rating: rand(0.0..5.0)
-# )
-# duck.skills = random_skill(skills)
-# byebug
-# duck.photo.attach(io: file, filename: 'blop.png', content_type: 'image/png')
-# duck.save!
 
 puts "All Good Boys"
 puts "-------------------------"
