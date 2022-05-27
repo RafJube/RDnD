@@ -80,9 +80,19 @@ array = [
     user: un
   },
   {
+    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShp85UBEy6ros9OG9hdweM9qQGezparGMSZA&usqp=CAU",
+    name: "Mandarin",
+    user: quatorze
+  },
+  {
     url: "https://res.cloudinary.com/guilhem/image/upload/v1653396867/RDnD/Bohemian-Quacksody-rubber-duck-front-Amsterdam-Duck-Store-e1570195237919-400x400_i9qm1u.jpg",
     name: "Bohemian",
     user: deux
+  },
+  {
+    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdAyk7Spm4N1Zn7AXFmK-4f49t44QGNzf_7A&usqp=CAU",
+    name: "Averell",
+    user: quatorze
   },
   {
     url: "https://res.cloudinary.com/guilhem/image/upload/v1653397075/RDnD/Duck-You-rubber-duck-front-Amsterdam-Duck-Store-400x400_rnqxsc.jpg",
@@ -115,11 +125,6 @@ array = [
     user: huit
   },
   {
-    url: "https://res.cloudinary.com/guilhem/image/upload/v1653397205/RDnD/racer-rubber-duck-front-e1569491413329-400x400_cpmx5g.jpg",
-    name: "Racer",
-    user: neuf
-  },
-  {
     url: "https://res.cloudinary.com/guilhem/image/upload/v1653397364/RDnD/black-star-rubber-duck-front-510x510_h3eqlk.jpg",
     name: "Vador",
     user: dix
@@ -148,6 +153,11 @@ array = [
     url: "https://res.cloudinary.com/guilhem/image/upload/v1653397464/RDnD/liberty-rubber-duck-front-e1569407748113-400x400_qphvpg.jpg",
     name: "Liberty",
     user: trois
+  },
+  {
+    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6D1CI0U3FiSNCXfU_3yQ0kEFUdBJWTim7Uw&usqp=CAU",
+    name: "William",
+    user: quinze
   },
   {
     url: "https://res.cloudinary.com/guilhem/image/upload/v1653397524/RDnD/dark-rubber-duck-front-Amsterdam-Duck-Store-400x400_uvjxzx.jpg",
@@ -191,7 +201,7 @@ array = [
   },
   {
     url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdAyk7Spm4N1Zn7AXFmK-4f49t44QGNzf_7A&usqp=CAU",
-    name: "Awrell",
+    name: "Averell",
     user: quatorze
   },
   {
