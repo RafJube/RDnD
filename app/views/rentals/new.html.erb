@@ -1,12 +1,13 @@
 <div class="container">
-  <h2>Reservation request for:</h2>
-  <p><%#= @duck.name %></p>
+  <h2>Rental request for:</h2>
+  <h3><%= @duck.name %></h3>
   <div class="alert"><%= @message %></div>
+  <p>Daily price for <%= @duck.name %>: <%= @duck.price.round %> €</p>
     <%= simple_form_for [@duck, @rental] do |f| %>
       <p>From</p><%= f.input :date_start, as: :date, html5: true, label: false %>
       <p>To</p><%= f.input :date_end, as: :date, html5: true, label: false %>
-      <%= f.submit "Ask for a reservation", class: "btn btn-flat" %>
+      <%= f.submit "Confirm", class: "btn btn-flat" %>
     <% end %>
   <br>
-  <%= link_to "Back to reservations", duck_rentals_path, class: "btn btn-flat"%>
+  <%= link_to "Back to my rentals", duck_rentals_path, class: "btn btn-flat"%>
 </div>

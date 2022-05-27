@@ -11,11 +11,10 @@ class DucksController < ApplicationController
       @ducks = policy_scope(Duck).global_search(params[:query])
 
       # @ducks = policy_scope(Duck).select { |duck| duck.skills.include?(Skill.find_by(name: params[:query])) }
-      
+
     else
       @ducks = policy_scope(Duck)
     end
-    # @ducks = Duck.all
 
     @markers = @ducks.map do |duck|
       if duck.user.geocoded?
@@ -70,8 +69,10 @@ class DucksController < ApplicationController
     @duck.update(duck_params)
     authorize @duck
     @skills_ids = params[:duck][:skills]
-    @skills_ids.map! { |skill| Skill.find(skill) }
-    @duck.skills = @skills_ids
+    if @skills_ids
+      @skills_ids.map! { |skill| Skill.find(skill) }
+      @duck.skills = @skills_ids
+    end
     if @duck.save
       redirect_to duck_path(@duck)
     else
