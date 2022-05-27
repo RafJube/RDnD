@@ -34,6 +34,21 @@ class RentalsController < ApplicationController
   def update
     @rental = Rental.find(params[:id])
     @rental.update(rental_params)
+    @duck = Duck.find(params[:duck_id])
+    if @duck.rentals.empty?
+      @duck.average_rating = @rental.rating
+    else
+      sum = 0.0
+      length = 0.0
+      @duck.rentals.each do |rental|
+        if rental.rating.instance_of?(BigDecimal)
+          sum += rental.rating
+          length += 1
+        end
+      end
+      @duck.average_rating = (sum / length)
+      @duck.save
+    end
     authorize @rental
     if @rental.save
       redirect_to duck_rentals_path
