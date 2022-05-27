@@ -2,18 +2,23 @@ class RentalsController < ApplicationController
   before_action :set_rental, only: [:show, :edit, :update, :destroy]
 
   def index
-    @rentals = Rental.all
+    @rentals = policy_scope(Rental).where(user_id: current_user)
   end
 
   def new
+    @duck = Duck.find(params[:duck_id])
     @rental = Rental.new
+    authorize @rental
   end
 
   def create
-  
     @rental = Rental.new(rental_params)
-    if @rental.save
-      redirect_to rentals_path
+    @rental.user = current_user
+    @duck = Duck.find(params[:duck_id])
+    @rental.duck = @duck
+    authorize @rental
+    if @rental.save && @rental.rental_available?(@duck)
+      redirect_to duck_rentals_path
     else
       render :new
     end
@@ -23,16 +28,28 @@ class RentalsController < ApplicationController
   end
 
   def edit
+    authorize @rental
   end
 
   def update
-    @rental.update!(rental_params)
-    redirect_to rentals_path
+    @rental = Rental.find(params[:id])
+    @rental.update(rental_params)
+    authorize @rental
+    if @rental.save
+      redirect_to duck_rentals_path
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @rental.destroy
-    redirect_to rentals_path
+    @rental = Rental.find(params[:id])
+    authorize @rental
+    if @rental.destroy
+      redirect_to duck_rentals_path
+    else
+      redirect_to duck_rental_path
+    end
   end
 
   private
@@ -43,5 +60,6 @@ class RentalsController < ApplicationController
 
   def set_rental
     @rental = Rental.find(params[:id])
+    @duck = Duck.find(params[:duck_id])
   end
 end

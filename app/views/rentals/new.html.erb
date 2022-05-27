@@ -21,16 +21,13 @@
   </div>
 <%# <div class="container">
   <h2>Reservation request for:</h2>
-  <%# <p><%= @duck.name %>
-  <%# <% <div class="alert"><%= @message %>
-  <%# <%= simple_form_for(@rental) do |f| %> 
-    <%# <%= f.input :date_start, as: :date, html5: true %> 
-    <%# <%= f.input :date_end, as: :date, html5: true %> 
-    <%# <p>Temporary</p> %>
-    <%# <%= f.association :duck %> 
-    <%# <%= f.association :user %> 
-    <%# <%= f.submit "Ask for a reservation", class: "btn btn-flat" %> 
-  <%# <% end %> 
-<%# </div> %> 
+  <p><%#= @duck.name %></p>
+  <div class="alert"><%= @message %></div>
+  <%= simple_form_for [@duck, @rental] do |f| %>
+    <%= f.input :date_start, as: :date, html5: true %>
+    <%= f.input :date_end, as: :date, html5: true %>
+    <%= f.submit "Ask for a reservation", class: "btn btn-flat" %>
+  <% end %>
+</div>
 <%= link_to "Back to rentals", rentals_path, class: "btn btn-flat"%>
-<%= link_to "Home", root_path, class: "btn btn-flat"%>
+<%= link_to "Back to rentals", duck_rentals_path, class: "btn btn-flat"%>

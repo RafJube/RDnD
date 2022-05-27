@@ -20,7 +20,8 @@
         <p><%= @duck.average_rating %> / 5.0</p>
       </div>
       <div class="show-link">
-        <%= link_to "Back", ducks_path %>
+      <%= link_to "Create a rentals", new_duck_rental_path(@duck.id), class: "btn btn-flat"%>
+        <%= link_to "Back", ducks_path, class: "btn btn-flat" %>
         <% if policy(@duck).update? %>
           <%= link_to "Edit", edit_duck_path(@duck) %>
          <% end %>
@@ -33,7 +34,7 @@
       </div>
     </div>
     <div class="show-photo">
-      <%= cl_image_tag @duck.photo.key, crop: :fill %>
+      <%= cl_image_tag @duck.photo.key,width: 400, height: 400, crop: :fill %>
     </div>
   </div>
 </div>

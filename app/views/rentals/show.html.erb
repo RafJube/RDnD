@@ -9,6 +9,6 @@
   <p>Total:<%= (@rental.duck.price*#{days}) %></p>
   <p><%= @rental.comments %></p>
 </div>
-<%= link_to "Back to rentals", rentals_path, class: "btn btn-flat"%>
+<%= link_to "Back to rentals", duck_rentals_path, class: "btn btn-flat"%>
 <%= link_to "Back to ducks", ducks_path, class: "btn btn-flat"%>
 <%= link_to "Home", root_path, class: "btn btn-flat"%>
