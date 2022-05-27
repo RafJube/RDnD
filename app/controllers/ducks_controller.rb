@@ -8,12 +8,12 @@ class DucksController < ApplicationController
         OR ducks.price ILIKE :query \
         OR skills.name ILIKE :query \
       "
-      @ducks = policy_scope(Duck).global_search(params[:query])
+      @ducks = policy_scope(Duck).global_search(params[:query]).order(updated_at: :desc)
 
       # @ducks = policy_scope(Duck).select { |duck| duck.skills.include?(Skill.find_by(name: params[:query])) }
 
     else
-      @ducks = policy_scope(Duck)
+      @ducks = policy_scope(Duck).order(updated_at: :desc)
     end
 
     @markers = @ducks.map do |duck|
