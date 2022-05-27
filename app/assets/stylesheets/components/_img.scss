@@ -1,5 +1,5 @@
 .card-photo img {
-  background-size: contain;
+  object-fit: cover;
   width: 200px;
   height: 200px;
 }
