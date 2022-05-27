@@ -18,14 +18,19 @@
                   <%= skill.name %>
                 <% end %>
               </p>
-              <p><%= duck.user.username %></p>
             </div>
-            <div class="card-photo">
-              <%= cl_image_tag duck.photo.key, height: 200, crop: :fill %>
-            </div>
+            <% if duck.photo.attached? %>
+              <div class="card-photo">
+                <%= cl_image_tag duck.photo.key, height: 200, crop: :fill %>
+              </div>
+            <% else %>
+              <div class="card-photo">
+                <%= image_tag "logo.png", height: 200, crop: :fill %>
+              </div>
+            <% end %>
             <div class="card-row">
-              <p><%= duck.price %> Euros</p>
-              <p><%= duck.average_rating %> / 5.0</p>
+              <p><%= duck.price %> €</p>
+              <p><%= duck.average_rating %> / 5</p>
             </div>
           </div>
         <% end %>

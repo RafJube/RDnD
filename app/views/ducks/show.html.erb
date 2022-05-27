@@ -2,10 +2,10 @@
   <div class="show-global">
     <div class="show-description">
       <div>
-        <h1>My name is <%= @duck.name %></h1>
-        <p><%= @duck.user.username %></p>
+        <h1>Hi, my name is <%= @duck.name %></h1>
+        <p>Trained by: <%= @duck.user.username %></p>
         <br>
-        <h3>Skills: <% @duck.skills.each do |skill| %>
+        <h3>I can help you with: <% @duck.skills.each do |skill| %>
               <%= skill.name %>
             <% end %>
         </h3>
@@ -13,15 +13,15 @@
       <div>
       <br>
       <h3>Description:</h3>
-      <h3><%= @duck.description %></h3>
+      <h4><%= @duck.description %></h4>
       </div>
       <br>
       <div>
-        <p><%= @duck.price %> Euros</p>
-        <p><%= @duck.average_rating %> / 5.0</p>
+        <p><%= @duck.price %> €</p>
+        <p><%= @duck.average_rating %> / 5</p>
       </div>
       <div class="show-link">
-      <%= link_to "Create a rentals", new_duck_rental_path(@duck.id), class: "btn btn-flat"%>
+      <%= link_to "Rent #{@duck.name}", new_duck_rental_path(@duck.id), class: "btn btn-flat"%>
         <%= link_to "Back", ducks_path, class: "btn btn-flat" %>
         <% if policy(@duck).update? %>
           <%= link_to "Edit", edit_duck_path(@duck) %>
@@ -34,8 +34,14 @@
         <% end %>
       </div>
     </div>
-    <div class="show-photo">
-      <%= cl_image_tag @duck.photo.key,width: 400, height: 400, crop: :fill %>
-    </div>
+    <% if @duck.photo.attached? %>
+      <div class="show-photo">
+        <%= cl_image_tag @duck.photo.key, width: 400, height: 400, crop: :fill %>
+      </div>
+    <% else %>
+      <div class="card-photo">
+          <%= image_tag "logo.png", width: 400, height: 400, crop: :fill %>
+      </div>
+    <% end %>
   </div>
 </div>

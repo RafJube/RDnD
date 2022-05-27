@@ -14,9 +14,8 @@
           <p><%= rental.rating %></p>
         </div>
         <div class="card-row">
-          <%#= link_to 'More details', duck_rental_path%>
           <%= link_to 'Add a comment', edit_duck_rental_path(rental.duck, rental)%>
-          <%= link_to 'Delete',
+          <%= link_to 'Cancel rental',
                 duck_rental_path(rental.duck, rental),
                 method: :delete,
                 data: { confirm: "Are you sure?" },
