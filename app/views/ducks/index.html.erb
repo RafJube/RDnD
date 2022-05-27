@@ -13,7 +13,7 @@
               </p>
             </div>
             <div class="card-photo">
-              <%= cl_image_tag duck.photo.key, width: 250, height: 200, crop: :fill %>
+              <%= cl_image_tag duck.photo.key, height: 200, crop: :fill %>
             </div>
             <div class="card-row">
               <p><%= duck.price %> Euros</p>
@@ -23,7 +23,7 @@
         <% end %>
       </div>
       <div class="container-map">
-        <div style="height: 400px;"
+        <div style="height: 600px;"
           data-controller="mapbox"
           data-mapbox-markers-value="<%= @markers.to_json %>"
           data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
