@@ -1,6 +1,6 @@
 <div class="container">
-<h2> Add a new duck</h2>
-<hr>
+  <h2> Add a new duck</h2>
+  <hr>
   <%= simple_form_for(@duck) do |f| %>
     <div class="row justify-content-center">
       <div class="col-auto">
@@ -17,7 +17,7 @@
       </div>
       <div class="col-auto">
           <p>Price €</p><%= f.input :price, label: false %>
-      </div> 
+      </div>
       <div>
           <%= f.submit "Add a new duck", class: "btn btn-flat" %>
       </div>
