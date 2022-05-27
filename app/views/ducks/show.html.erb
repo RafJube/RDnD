@@ -18,7 +18,7 @@
       <br>
       <div>
         <p><%= @duck.price.round %> €/day</p>
-        <p><%= @duck.average_rating %>/5</p>
+        <p><%= @duck.average_rating.to_f.round(1) %>/5</p>
       </div>
       <div class="show-link">
         <%= link_to "Rent", new_duck_rental_path(@duck.id), class: "btn btn-flat"%>
