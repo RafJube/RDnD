@@ -23,7 +23,7 @@
               <%= cl_image_tag duck.photo.key, height: 200, crop: :fill, class: "img rounded cover img-fluid" %>
             </div>
             <div class="card-row">
-              <p><%= duck.price %> Euros</p>
+              <p><%= duck.price.round %> Euros</p>
               <p><%= duck.average_rating %> / 5.0</p>
             </div>
           </div>
