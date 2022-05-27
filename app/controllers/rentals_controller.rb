@@ -17,7 +17,7 @@ class RentalsController < ApplicationController
     @duck = Duck.find(params[:duck_id])
     @rental.duck = @duck
     authorize @rental
-    if @rental.save && @rental.rental_available?(@duck)
+    if @rental.rental_available?(@duck) && @rental.save
       redirect_to duck_rentals_path
     else
       render :new
