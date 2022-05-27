@@ -2,10 +2,13 @@
   <h2><%= @rental.duck.name %></h2>
   <p>Owner: <%= @rental.duck.user.username %></p>
   <p><%= @rental.id %></p>
-  <p>from:<%= @rental.date_start.strftime("%d/%m/%Y") %></p>
-  <p>to:<%= @rental.date_end.strftime("%d/%m/%Y") %></p>
+  <p>From:<%= @rental.date_start.strftime("%d/%m/%Y") %></p>
+  <p>To:<%= @rental.date_end.strftime("%d/%m/%Y") %></p>
+  <p><%= days=(@rental.date_end.strftime("%d/%m/%Y")-@rental.date_start.strftime("%d/%m/%Y")) %>days</p>
+  <p>Price per day:<%= @rental.duck.price %></p>
+  <p>Total:<%= (@rental.duck.price*#{days}) %></p>
   <p><%= @rental.comments %></p>
-  <p><%= @rental.rating %></p>
 </div>
 <%= link_to "Back to rentals", duck_rentals_path, class: "btn btn-flat"%>
 <%= link_to "Back to ducks", ducks_path, class: "btn btn-flat"%>
+<%= link_to "Home", root_path, class: "btn btn-flat"%>
