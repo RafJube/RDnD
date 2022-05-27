@@ -1,15 +1,19 @@
 class Duck < ApplicationRecord
   include PgSearch::Model
-  multisearchable against: [:name, :price]
+  # multisearchable against: [:name, :price]
 
   pg_search_scope :global_search,
     against: [ :name, :price ],
     associated_against: {
-      skills: [ :name ]
+      skills: :name,
+      user: :username
     },
     using: {
       tsearch: { prefix: true }
+      # :trigram
     }
+    # ignoring: :accents
+
   has_many :rentals
   has_many :favorites, dependent: :destroy
   has_many :duck_skills, dependent: :destroy
