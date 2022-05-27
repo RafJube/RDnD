@@ -7,6 +7,7 @@
     %>
     <%= submit_tag "Search", class: "btn btn-flat" %>
   <% end %>
+  <p>Results:<%= @ducks.length %></p>
     <div class="container-row container-with-map">
       <div class="cards">
         <% @ducks.each do |duck| %>
