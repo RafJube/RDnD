@@ -3,6 +3,7 @@
     <div class="show-description">
       <div>
         <h1>My name is <%= @duck.name %></h1>
+        <p><%= @duck.user.username %></p>
         <br>
         <h3>Skills: <% @duck.skills.each do |skill| %>
               <%= skill.name %>

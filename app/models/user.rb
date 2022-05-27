@@ -4,11 +4,18 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  include PgSearch::Model
+  # multisearchable against: :username
+  pg_search_scope :search_by_name,
+  against: [ :username ],
+    using: {
+      tsearch: { prefix: true }
+    }
   has_many :rentals
   has_many :favorites, dependent: :destroy
   has_many :ducks, dependent: :destroy
-  has_many :ducks, through: :rentals
-  has_many :ducks, through: :favorites
+  # has_many :ducks, through: :rentals
+  # has_many :ducks, through: :favorites
 
   validates :username, presence: true, uniqueness: true, length: { minimum: 3 }
   validates :email, presence: true, uniqueness: true
