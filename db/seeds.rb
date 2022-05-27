@@ -2,6 +2,7 @@ require "open-uri"
 
 puts "Destroy everything..."
 
+Rental.destroy_all if Rails.env.development?
 Duck.destroy_all if Rails.env.development?
 User.destroy_all if Rails.env.development?
 Skill.destroy_all if Rails.env.development?
@@ -82,7 +83,7 @@ array = [
     url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShp85UBEy6ros9OG9hdweM9qQGezparGMSZA&usqp=CAU",
     name: "Mandarin",
     user: quatorze
-  },  
+  },
   {
     url: "https://res.cloudinary.com/guilhem/image/upload/v1653396867/RDnD/Bohemian-Quacksody-rubber-duck-front-Amsterdam-Duck-Store-e1570195237919-400x400_i9qm1u.jpg",
     name: "Bohemian",
@@ -184,19 +185,29 @@ array = [
     user: dix
   },
   {
+    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShp85UBEy6ros9OG9hdweM9qQGezparGMSZA&usqp=CAU",
+    name: "Mandarin",
+    user: quatorze
+  },
+  {
     url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9OBlQ5Gy6NQggpI4bN984l-2qa8oiaLzT4g&usqp=CAU",
     name: "Joe",
     user: dix
-  },  
+  },
   {
     url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_uNcvT9wLDf7eM-vE1mk6E1OYSiV6wDqDWg&usqp=CAU",
     name: "Alfred",
     user: treize
   },
   {
-    url: "https://res.cloudinary.com/guilhem/image/upload/v1653397205/RDnD/racer-rubber-duck-front-e1569491413329-400x400_cpmx5g.jpg",
-    name: "Racer",
-    user: neuf
+    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdAyk7Spm4N1Zn7AXFmK-4f49t44QGNzf_7A&usqp=CAU",
+    name: "Averell",
+    user: quatorze
+  },
+  {
+    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6D1CI0U3FiSNCXfU_3yQ0kEFUdBJWTim7Uw&usqp=CAU",
+    name: "William",
+    user: quinze
   }
 ]
 
