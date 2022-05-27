@@ -17,11 +17,12 @@
       </div>
       <br>
       <div>
-        <p><%= @duck.price %> Euros</p>
-        <p><%= @duck.average_rating %> / 5.0</p>
+        <p><%= @duck.price.round %> Euros/day</p>
+        <p><%= @duck.average_rating %>/5.0</p>
       </div>
       <div class="show-link">
-      <%= link_to "Reserve", new_duck_rental_path(@duck.id), class: "btn btn-flat"%>
+        <%= link_to "Reserve", new_duck_rental_path(@duck.id), class: "btn btn-flat"%>
+        <%= link_to "Duck's reservations", duck_rentals_path(@duck.id), class: "btn btn-flat"%>
         <%= link_to "Back", ducks_path, class: "btn btn-flat" %>
         <% if policy(@duck).update? %>
           <%= link_to "Edit", edit_duck_path(@duck) %>
