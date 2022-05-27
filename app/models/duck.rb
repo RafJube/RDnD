@@ -10,7 +10,7 @@ class Duck < ApplicationRecord
     },
     using: {
       tsearch: { prefix: true }
-      # :trigram
+      # trigram:
     }
     # ignoring: :accents
 
