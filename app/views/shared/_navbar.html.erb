@@ -14,6 +14,7 @@
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "Create a new Duck", new_duck_path, class: "dropdown-item" %>
                 <%= link_to "List my ducks", "/ducks?query=#{current_user.username}&commit=Search", class: "dropdown-item" %>
+                <%= link_to "My rentals", duck_rentals_path("#{current_user.username}"), class: "dropdown-item"%>
                 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
               </div>
           </li>
@@ -26,5 +27,3 @@
     </div>
   </div>
 </div>
-
-

@@ -1,20 +1,26 @@
-
 <div class="container">
   <div class="cards">
     <% @rentals.each do |rental| %>
       <div class="card">
-        <div class="card-info">
+        <div class="card-row" style="height: auto">
+          <%= cl_image_tag rental.duck.photo.key, height: 80, crop: :fill, class: "img rounded cover img-fluid" %>
           <h2><%= rental.duck.name %></h2>
-          <p>Owner: <%= rental.duck.user.username %></p>
-          <p>from: <%= rental.date_start.strftime("%d/%m/%Y") %></p>
-          <p>to: <%= rental.date_end.strftime("%d/%m/%Y") %></p>
+          <p><%= rental.rating %>/5.0</p>
         </div>
         <div class="card-row">
+          <p><strong>From: </strong><%= rental.date_start.strftime("%d/%m/%Y") %></p>
+          <p><strong>To: </strong><%= rental.date_end.strftime("%d/%m/%Y") %></p>
+        </div>
+        <div class="card-row">
+          <% days = (rental.date_end - rental.date_start) / (24 * 60 * 60) %>
+          <p><strong>Duration: </strong><%= days.round %> days</p>
+          <p><strong>Total price: </strong><%= (days * rental.duck.price).round %> Euros</p>
+        </div>
+        <div class="card-row" style="height: 80px;overflow: hidden;max-width: 450px;text-align: left">
           <p><%= rental.comments %></p>
-          <p><%= rental.rating %></p>
         </div>
         <div class="card-row">
-          <%= link_to 'Add a comment', edit_duck_rental_path(rental.duck, rental)%>
+          <%= link_to 'Add a comment', edit_duck_rental_path(rental.duck, rental), class: "btn btn-ghost" %>
           <%= link_to 'Cancel rental',
                 duck_rental_path(rental.duck, rental),
                 method: :delete,
@@ -24,6 +30,7 @@
       </div>
     <% end %>
   </div>
+  <br>
+  <%= link_to "Reserve", new_duck_rental_path, class: "btn btn-flat"%>
+  <%= link_to "Back to ducks", ducks_path, class: "btn btn-flat" %>
 </div>
-<%= link_to "Create a rentals", new_duck_rental_path, class: "btn btn-flat"%>
-<%= link_to "Back to ducks", ducks_path, class: "btn btn-flat" %>
