@@ -14,9 +14,10 @@ class RentalsController < ApplicationController
   def create
     @rental = Rental.new(rental_params)
     @rental.user = current_user
-    @rental.duck = Duck.find(params[:duck_id])
+    @duck = Duck.find(params[:duck_id])
+    @rental.duck = @duck
     authorize @rental
-    if @rental.save
+    if @rental.save && @rental.rental_available?(@duck)
       redirect_to duck_rentals_path
     else
       render :new
@@ -27,6 +28,7 @@ class RentalsController < ApplicationController
   end
 
   def edit
+    authorize @rental
   end
 
   def update
@@ -34,7 +36,7 @@ class RentalsController < ApplicationController
     @rental.update(rental_params)
     authorize @rental
     if @rental.save
-      redirect_to duck_rental_path
+      redirect_to duck_rentals_path
     else
       render :edit
     end
