@@ -5,7 +5,7 @@
         <div class="card-row" style="height: auto">
           <%= cl_image_tag rental.duck.photo.key, height: 80, crop: :fill, class: "img rounded cover img-fluid" %>
           <h2><%= rental.duck.name %></h2>
-          <p><%= rental.rating %>/5.0</p>
+          <p><%= rental.rating %>/5</p>
         </div>
         <div class="card-row">
           <p><strong>From: </strong><%= rental.date_start.strftime("%d/%m/%Y") %></p>
@@ -31,6 +31,5 @@
     <% end %>
   </div>
   <br>
-  <%= link_to "Reserve", new_duck_rental_path, class: "btn btn-flat"%>
   <%= link_to "Back to ducks", ducks_path, class: "btn btn-flat" %>
 </div>
