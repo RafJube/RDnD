@@ -2,6 +2,7 @@ require "open-uri"
 
 puts "Destroy everything..."
 
+Rental.destroy_all if Rails.env.development?
 Duck.destroy_all if Rails.env.development?
 User.destroy_all if Rails.env.development?
 Skill.destroy_all if Rails.env.development?
@@ -177,22 +178,22 @@ array = [
     url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShp85UBEy6ros9OG9hdweM9qQGezparGMSZA&usqp=CAU",
     name: "Mandarin",
     user: quatorze
-  },  
+  },
   {
     url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9OBlQ5Gy6NQggpI4bN984l-2qa8oiaLzT4g&usqp=CAU",
     name: "Joe",
     user: dix
-  },  
+  },
   {
     url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_uNcvT9wLDf7eM-vE1mk6E1OYSiV6wDqDWg&usqp=CAU",
     name: "Alfred",
     user: treize
-  },  
+  },
   {
     url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdAyk7Spm4N1Zn7AXFmK-4f49t44QGNzf_7A&usqp=CAU",
     name: "Awrell",
     user: quatorze
-  },  
+  },
   {
     url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6D1CI0U3FiSNCXfU_3yQ0kEFUdBJWTim7Uw&usqp=CAU",
     name: "William",
