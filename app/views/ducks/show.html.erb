@@ -13,7 +13,7 @@
       <div>
       <br>
       <h3>Description:</h3>
-      <h3><%= @duck.description %></h3>
+      <p><%= @duck.description %></p>
       </div>
       <br>
       <div>
@@ -21,7 +21,7 @@
         <p><%= @duck.average_rating %> / 5.0</p>
       </div>
       <div class="show-link">
-      <%= link_to "Create a rentals", new_duck_rental_path(@duck.id), class: "btn btn-flat"%>
+      <%= link_to "Reserve", new_duck_rental_path(@duck.id), class: "btn btn-flat"%>
         <%= link_to "Back", ducks_path, class: "btn btn-flat" %>
         <% if policy(@duck).update? %>
           <%= link_to "Edit", edit_duck_path(@duck) %>

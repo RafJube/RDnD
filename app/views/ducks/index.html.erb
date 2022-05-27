@@ -5,7 +5,7 @@
       classe: "form-control",
       placeholder: "Type a language"
     %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <%= submit_tag "Search", class: "btn btn-flat" %>
   <% end %>
     <div class="container-row container-with-map">
       <div class="cards">
@@ -21,7 +21,7 @@
               <p><%= duck.user.username %></p>
             </div>
             <div class="card-photo">
-              <%= cl_image_tag duck.photo.key, height: 200, crop: :fill %>
+              <%= cl_image_tag duck.photo.key, height: 200, crop: :fill, class: "img-fluid" %>
             </div>
             <div class="card-row">
               <p><%= duck.price %> Euros</p>
